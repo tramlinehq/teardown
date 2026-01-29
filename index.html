@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teardown.mobi</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Serve with any static file server, e.g.: python3 -m http.server 8000 -->
+    <div class="container">
+      <header>
+        <h1>Teardown.mobi</h1>
+        <p class="subtitle">
+          Extract build information from mobile app packages locally in your
+          browser.
+        </p>
+      </header>
+
+      <div id="drop-zone" class="drop-zone">
+        <div class="drop-zone-content">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="upload-icon"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m18 9-6-6-6 6" />
+            <path d="M12 3v14" />
+            <path d="M5 21h14" />
+          </svg>
+          <p>Drag &amp; drop your build file here</p>
+          <p class="drop-hint">or click to select a file</p>
+          <p class="supported-formats">Supports: .apk, .aab, .ipa</p>
+        </div>
+        <input type="file" id="file-input" accept=".apk,.aab,.ipa" hidden />
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Analyzing build&hellip;</p>
+      </div>
+
+      <div id="results" class="results hidden"></div>
+
+      <div id="error" class="error hidden"></div>
+
+      <footer>
+        Built by
+        <a href="https://tramline.app" target="_blank" rel="noopener"
+          >Tramline</a
+        >
+      </footer>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+      integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/axml-parser.js"></script>
+    <script src="js/bplist-parser.js"></script>
+    <script src="js/crushed-png.js"></script>
+    <script src="js/apk-parser.js"></script>
+    <script src="js/proto-xml-parser.js"></script>
+    <script src="js/aab-parser.js"></script>
+    <script src="js/ipa-parser.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
