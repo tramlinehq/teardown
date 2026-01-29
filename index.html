@@ -6,34 +6,144 @@
     <title>Teardown.mobi</title>
     <link rel="icon" href="favicon.ico" />
     <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: system-ui, sans-serif; max-width: 640px; margin: 0 auto; padding: 40px 20px; line-height: 1.5; }
-header { margin-bottom: 24px; }
-header h1 { margin-bottom: 4px; }
-.subtitle { color: #666; }
-.drop-zone { border: 2px dashed #ccc; padding: 40px 20px; text-align: center; cursor: pointer; margin-bottom: 24px; }
-.drop-zone:hover, .drop-zone.drag-over { border-color: #888; background: #f8f8f8; }
-.upload-icon { color: #767676; margin-bottom: 8px; }
-.drop-zone p { color: #666; }
-.supported-formats { font-size: 0.85em; color: #767676; margin-top: 8px; }
-.loading { text-align: center; padding: 40px; }
-.spinner { width: 24px; height: 24px; border: 3px solid #ddd; border-top-color: #333; border-radius: 50%; margin: 0 auto 12px; animation: spin 0.7s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.error { color: #900; border: 1px solid #dcc; padding: 12px; margin-bottom: 16px; }
-.result-icon { width: 64px; height: 64px; border-radius: 12px; }
-.result-meta { color: #666; font-size: 0.9em; margin-bottom: 16px; }
-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
-th, td { text-align: left; padding: 4px 8px 4px 0; border-bottom: 1px solid #eee; font-size: 0.9em; }
-th { color: #666; font-weight: normal; white-space: nowrap; width: 1%; }
-td { word-break: break-all; }
-td.ref { color: #7d4e00; font-family: monospace; font-size: 0.85em; }
-.results h3 { font-size: 0.9em; color: #666; margin: 16px 0 6px; }
-.results ul { margin: 0 0 12px 20px; font-size: 0.9em; }
-.results code { font-size: 0.85em; background: #f4f4f4; padding: 2px 6px; }
-button { cursor: pointer; font: inherit; font-size: 0.85em; padding: 4px 12px; margin-top: 12px; }
-.hidden { display: none !important; }
-footer { margin-top: 32px; text-align: center; color: #767676; font-size: 0.85em; }
-footer a { color: #666; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.5;
+      }
+      header {
+        margin-bottom: 24px;
+      }
+      header h1 {
+        margin-bottom: 4px;
+      }
+      .subtitle {
+        color: #666;
+      }
+      .drop-zone {
+        border: 2px dashed #ccc;
+        padding: 40px 20px;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 24px;
+      }
+      .drop-zone:hover,
+      .drop-zone.drag-over {
+        border-color: #888;
+        background: #f8f8f8;
+      }
+      .upload-icon {
+        color: #767676;
+        margin-bottom: 8px;
+      }
+      .drop-zone p {
+        color: #666;
+      }
+      .supported-formats {
+        font-size: 0.85em;
+        color: #767676;
+        margin-top: 8px;
+      }
+      .loading {
+        text-align: center;
+        padding: 40px;
+      }
+      .spinner {
+        width: 24px;
+        height: 24px;
+        border: 3px solid #ddd;
+        border-top-color: #333;
+        border-radius: 50%;
+        margin: 0 auto 12px;
+        animation: spin 0.7s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .error {
+        color: #900;
+        border: 1px solid #dcc;
+        padding: 12px;
+        margin-bottom: 16px;
+      }
+      .result-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+      }
+      .result-meta {
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 16px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 4px 8px 4px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9em;
+      }
+      th {
+        color: #666;
+        font-weight: normal;
+        white-space: nowrap;
+        width: 1%;
+      }
+      td {
+        word-break: break-all;
+      }
+      td.ref {
+        color: #7d4e00;
+        font-family: monospace;
+        font-size: 0.85em;
+      }
+      .results h3 {
+        font-size: 0.9em;
+        color: #666;
+        margin: 16px 0 6px;
+      }
+      .results ul {
+        margin: 0 0 12px 20px;
+        font-size: 0.9em;
+      }
+      .results code {
+        font-size: 0.85em;
+        background: #f4f4f4;
+        padding: 2px 6px;
+      }
+      button {
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.85em;
+        padding: 4px 12px;
+        margin-top: 12px;
+      }
+      .hidden {
+        display: none !important;
+      }
+      footer {
+        margin-top: 32px;
+        text-align: center;
+        color: #767676;
+        font-size: 0.85em;
+      }
+      footer a {
+        color: #666;
+      }
     </style>
   </head>
   <body>
@@ -82,10 +192,16 @@ footer a { color: #666; }
       <div id="error" class="error hidden"></div>
 
       <footer>
-        Built by
+        <a
+          href="https://github.com/tramlinehq/teardown"
+          target="_blank"
+          rel="noopener"
+          >Built</a
+        >
+        by
         <a href="https://tramline.app" target="_blank" rel="noopener"
           >Tramline</a
-        >
+        >.
       </footer>
     </main>
 
